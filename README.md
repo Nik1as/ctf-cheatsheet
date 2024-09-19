@@ -43,7 +43,7 @@
 ## Nmap
 
 ```
-nmap -vv -sC -sV -Pn -oN scan.txt <target-ip>
+nmap -vv -sV -sC -p- -Pn --min-rate 10000 -oN scan.txt <target-ip>
 nmap -p- --script vuln <target-ip>
 ```
  
@@ -204,22 +204,28 @@ nc -nvlp <port>
 ### Local File Inclusion
 
 - example: ``http://example.com/index.php?page=home.html``
-- verifiy: 
-    - Windows: ``../../../../../../../../windows/system32/drivers/etc/hosts``
-    - Linux: ``../../../../../../etc/passwd``
-- read ssh keys or web-app config files
+- interesting files:
+  - ``/etc/passwd``
+  - ``/etc/apache2/sites-enabled/000-default.conf``: Apache configuration
+  - ssh keys
+  - web-app config files
 - PHP backend $\Rightarrow$ PHP wrappers or log poisoning
 
 ### File Upload
 
-- file extension
-	- upload file with allowed extension and rename the file
-	- blacklist $\Rightarrow$ try alternative extensions like pht, php3, php4, ...
-	- double extension e.g. shell.php.jpg
-- Content-Type Header
-	- change header to allowed type
-- magic bytes
-	- change magic bytes in hex editor
+- filters
+  - file extension
+  	- upload file with allowed extension and rename the file
+  	- blacklist $\Rightarrow$ try alternative extensions like pht, php3, php4, ...
+  	- double extension e.g. shell.php.jpg
+  - Content-Type Header
+  	- change header to allowed type
+  - magic bytes
+  	- change magic bytes in hex editor
+- zip file upload
+  - upload zip file with symlinks $\Rightarrow$ file read
+  - write files with path traversal through file names e.g. file with name ``../../../../../root/.ssh/authorized_keys``
+  - zip file upload and LFI and PHP backend $\Rightarrow$ phar injection
 
 ### Regex Bypass
 
