@@ -10,6 +10,7 @@
 - [Windows Privilege Escalation](Windows_Privilege_Escalation.md)
 - [Forensics](Forensics.md)
 - [File Transfer](File_Transfer.md)
+- [Git](Git.md)
 
 ## Resources
 
