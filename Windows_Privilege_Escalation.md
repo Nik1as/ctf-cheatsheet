@@ -4,7 +4,7 @@
 - connect to the target
     ```
     evil-winrm -i <rhost> -u <user> -p <password>
-    evil-winrm -i <rhost> -u <user> H <hash-pass> 
+    evil-winrm -i <rhost> -u <user> -H <hash-pass> 
     ```
 
 ## System Enumeration

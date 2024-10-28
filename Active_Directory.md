@@ -1,13 +1,13 @@
 # Active Directory
 
 ```
-smbclient -L //<target-ip>/ -U <user>
-smbclient //<target-ip>/<share> -U <user>
+smbclient -L //<rhost>/ -U <user>
+smbclient //<rhost>/<share> -U <user>
 
 enum4linux -a <ip>
 
-ldapdomaindump ldap://<target-ip> -u '<domain>\<user>' -p '<password>'
+ldapdomaindump ldap://<rhost> -u '<domain>\<user>' -p '<password>'
 
-netexec smb <target-ip> -u guest -p '<password>' --rid-brute
-netexec smb <target-ip> -u users.txt -p '<password>' 
+netexec smb <rhost> -u guest -p '<password>' --rid-brute
+netexec smb <rhost> -u users.txt -p '<password>' 
 ```
