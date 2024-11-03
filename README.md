@@ -4,6 +4,7 @@
 - [Nmap](#nmap)
 - [Services](Services.md)
 - [Web Applications](Web_Applications.md)
+- [Command Injection](Command_Injection.md)
 - [Shell](Shell.md)
 - [Crypto](Crypto.md)
 - [Active Directory](Active_Directory.md)
