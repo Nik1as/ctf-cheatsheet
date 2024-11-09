@@ -20,6 +20,38 @@ find / -writable 2>/dev/null
 dpkg -l
 ```
 
+## Interesting files and directories
+
+```
+/etc/passwd
+/etc/shadow
+/etc/sudoers
+/etc/hosts
+/etc/crontab
+
+/home/<user>/.bash_history
+```
+
+```
+/root
+
+/var/www
+/var/www/html
+
+/opt
+/tmp
+/dev/shm
+
+/var/mail
+/var/spool/mail
+
+/home/<user>
+/home/<user>/.ssh
+
+/etc/apache2
+/etc/nginx
+```
+
 ## SUDO, SUID and SGID
 
 - ``sudo -l``: list commands the current user can run with sudo
