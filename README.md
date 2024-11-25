@@ -1,11 +1,12 @@
 # CTF Cheat-Sheet
 
-- [Nmap](Nmap.md)
+- [nmap](Nmap.md)
 - [Services](Services.md)
 - [Web Applications](Web_Applications.md)
 - [Command Injection](Command_Injection.md)
 - [Shell](Shell.md)
 - [Crypto](Crypto.md)
+- [Wordlists](Wordlists.md)
 - [Active Directory](Active_Directory.md)
 - [Buffer Overflow](Buffer_Overflow.md)
 - [Linux Privilege Escalation](Linux_Privilege_Escalation.md)
