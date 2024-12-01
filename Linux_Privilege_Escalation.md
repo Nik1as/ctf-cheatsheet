@@ -23,31 +23,30 @@ dpkg -l
 ## Interesting files and directories
 
 ```
+find / -type f -user <username> -readable 2>/dev/null
+find / -writable -type d 2>/dev/null
+```
+
+```
 /etc/passwd
 /etc/shadow
 /etc/sudoers
 /etc/hosts
 /etc/crontab
-
 /home/<user>/.bash_history
 ```
 
 ```
 /root
-
 /var/www
 /var/www/html
-
 /opt
 /tmp
 /dev/shm
-
 /var/mail
 /var/spool/mail
-
 /home/<user>
 /home/<user>/.ssh
-
 /etc/apache2
 /etc/nginx
 ```
